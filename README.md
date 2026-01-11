@@ -100,7 +100,15 @@ Converts DSD files (.dsf, .dff) to uncompressed AIFF format.
 
 **Default behavior:** Outputs 176.4kHz / 24-bit (optimal for DSD conversion).
 
-DSD is 1-bit audio at very high sample rates (2.8-11.2 MHz). Converting to PCM requires decimation. Higher output sample rates preserve more of the original high-frequency content.
+**Supported DSD formats:**
+| Format | Sample Rate | Status |
+|--------|-------------|--------|
+| DSD64 | 2.8 MHz | ✓ Supported |
+| DSD128 | 5.6 MHz | ✓ Supported |
+| DSD256 | 11.2 MHz | ✓ Supported |
+| DSD512 | 22.5 MHz | ✓ Supported |
+
+DSD is 1-bit audio at very high sample rates. Converting to PCM requires decimation. Higher output sample rates preserve more of the original high-frequency content.
 
 **Options:**
 | Option | Description |
