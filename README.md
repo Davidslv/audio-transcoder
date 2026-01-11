@@ -54,6 +54,44 @@ Converts FLAC files to uncompressed AIFF format with optional resampling.
 - Automatically detects and copies cover art
 - Searches common cover art locations and filenames
 
+---
+
+### wav-to-aiff.sh
+
+Converts WAV files to uncompressed AIFF format with optional resampling.
+
+**Default behavior:** Preserves original sample rate and bit depth (no downsampling).
+
+**Options:**
+| Option | Description |
+|--------|-------------|
+| `-r, --sample-rate <rate>` | Resample to specified rate (e.g., 44100, 48000, 96000) |
+| `-b, --bit-depth <bits>` | Convert to specified bit depth (16 or 24) |
+| `--redbook` | Shortcut for CD quality: 44100 Hz / 16-bit |
+| `-h, --help` | Show help message |
+
+**Usage:**
+```bash
+./wav-to-aiff.sh [OPTIONS] <source_folder> <destination_folder>
+```
+
+**Examples:**
+```bash
+# Preserve original quality (no resampling)
+./wav-to-aiff.sh "./Album [WAV]" "./Album [AIFF]"
+
+# Convert to Red Book CD quality (44.1kHz / 16-bit)
+./wav-to-aiff.sh --redbook "./Album [WAV]" "./Album [AIFF]"
+
+# Downsample to 48kHz / 24-bit
+./wav-to-aiff.sh -r 48000 -b 24 "./Album [WAV]" "./Album [AIFF]"
+```
+
+**Features:**
+- Preserves metadata (artist, album, track number, title, etc.)
+- Automatically detects and copies cover art
+- Searches common cover art locations and filenames
+
 ## Cover Art Detection
 
 The scripts automatically search for cover art in the following order:
