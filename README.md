@@ -92,6 +92,53 @@ Converts WAV files to uncompressed AIFF format with optional resampling.
 - Automatically detects and copies cover art
 - Searches common cover art locations and filenames
 
+---
+
+### dsd-to-aiff.sh
+
+Converts DSD files (.dsf, .dff) to uncompressed AIFF format.
+
+**Default behavior:** Outputs 176.4kHz / 24-bit (optimal for DSD conversion).
+
+DSD is 1-bit audio at very high sample rates (2.8-11.2 MHz). Converting to PCM requires decimation. Higher output sample rates preserve more of the original high-frequency content.
+
+**Options:**
+| Option | Description |
+|--------|-------------|
+| `-r, --sample-rate <rate>` | Output sample rate (default: 176400) |
+| `-b, --bit-depth <bits>` | Output bit depth (16 or 24, default: 24) |
+| `--redbook` | Shortcut for CD quality: 44100 Hz / 16-bit |
+| `-h, --help` | Show help message |
+
+**Usage:**
+```bash
+./dsd-to-aiff.sh [OPTIONS] <source_folder> <destination_folder>
+```
+
+**Examples:**
+```bash
+# Default: 176.4kHz / 24-bit (best quality for DSD)
+./dsd-to-aiff.sh "./Album [DSD]" "./Album [AIFF]"
+
+# Convert to Red Book CD quality (44.1kHz / 16-bit)
+./dsd-to-aiff.sh --redbook "./Album [DSD]" "./Album [AIFF]"
+
+# Custom: 88.2kHz / 24-bit
+./dsd-to-aiff.sh -r 88200 -b 24 "./Album [DSD]" "./Album [AIFF]"
+```
+
+**Recommended output rates for DSD:**
+| Rate | Quality |
+|------|---------|
+| 176400 Hz | Best - preserves most DSD detail |
+| 88200 Hz | Good - smaller files |
+| 44100 Hz | Maximum compatibility |
+
+**Features:**
+- Supports .dsf and .dff formats
+- Preserves metadata
+- Automatically detects and copies cover art
+
 ## Cover Art Detection
 
 The scripts automatically search for cover art in the following order:
