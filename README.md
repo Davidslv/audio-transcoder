@@ -1,6 +1,6 @@
-# Audio Conversion Scripts
+# Audio Transcoder
 
-A collection of shell scripts for converting audio files between formats with audiophile-quality settings.
+Shell scripts for converting audio files between lossless formats with audiophile-quality settings.
 
 ## Requirements
 
